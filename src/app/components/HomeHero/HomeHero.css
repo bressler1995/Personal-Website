@@ -1,0 +1,6 @@
+.HomeHero {
+    display: block;
+    width: 100%;
+    height: 80vh;
+    background-color: var(--section-alt-bg);
+}
