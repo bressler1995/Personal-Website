@@ -1,13 +1,61 @@
+"use client"
+
 import Link from "next/link"
 import AnimatedCodeAbstraction from "@/components/animated-shape"
 import PageTransitionLayout from "@/components/page-transition-layout"
 import { Button } from "@/components/ui/button"
+import { motion } from "framer-motion"
 
 export default function Home() {
   return (
     <PageTransitionLayout>
-      <div className="min-h-screen flex flex-col justify-center items-center p-4 bg-gradient-to-br from-[#281847] via-[#A11A98] to-[#c0357a]">
-        <div className="text-center text-white flex flex-col items-center">
+      <div className="min-h-screen flex flex-col justify-center items-center p-4 relative overflow-hidden">
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-br from-[#281847] via-[#A11A98] to-[#c0357a]"
+          animate={{
+            background: [
+              "linear-gradient(145deg, #281847 0%, #A11A98 50%, #c0357a 100%)",
+              "linear-gradient(125deg, #281847 0%, #c0357a 50%, #A11A98 100%)",
+              "linear-gradient(155deg, #A11A98 0%, #281847 50%, #c0357a 100%)",
+              "linear-gradient(135deg, #c0357a 0%, #A11A98 50%, #281847 100%)",
+              "linear-gradient(145deg, #281847 0%, #A11A98 50%, #c0357a 100%)",
+              "linear-gradient(125deg, #281847 0%, #c0357a 50%, #A11A98 100%)",
+              "linear-gradient(155deg, #A11A98 0%, #281847 50%, #c0357a 100%)",
+              "linear-gradient(135deg, #c0357a 0%, #A11A98 50%, #281847 100%)",
+              "linear-gradient(145deg, #281847 0%, #A11A98 50%, #c0357a 100%)",
+            ],
+          }}
+          transition={{
+            duration: 30,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+        <motion.div
+          className="absolute inset-0"
+          animate={{
+            background: [
+              "radial-gradient(circle at 10% 20%, rgba(237, 64, 139, 0.15) 0%, transparent 30%), radial-gradient(circle at 80% 30%, rgba(237, 64, 139, 0.1) 0%, transparent 25%), radial-gradient(circle at 30% 70%, rgba(237, 64, 139, 0.2) 0%, transparent 35%)",
+              "radial-gradient(circle at 20% 40%, rgba(237, 64, 139, 0.1) 0%, transparent 25%), radial-gradient(circle at 70% 50%, rgba(237, 64, 139, 0.15) 0%, transparent 30%), radial-gradient(circle at 40% 80%, rgba(237, 64, 139, 0.2) 0%, transparent 35%)",
+              "radial-gradient(circle at 30% 60%, rgba(237, 64, 139, 0.2) 0%, transparent 35%), radial-gradient(circle at 60% 70%, rgba(237, 64, 139, 0.1) 0%, transparent 25%), radial-gradient(circle at 50% 30%, rgba(237, 64, 139, 0.15) 0%, transparent 30%)",
+              "radial-gradient(circle at 40% 80%, rgba(237, 64, 139, 0.15) 0%, transparent 30%), radial-gradient(circle at 50% 20%, rgba(237, 64, 139, 0.2) 0%, transparent 35%), radial-gradient(circle at 70% 40%, rgba(237, 64, 139, 0.1) 0%, transparent 25%)",
+              "radial-gradient(circle at 10% 20%, rgba(237, 64, 139, 0.15) 0%, transparent 30%), radial-gradient(circle at 80% 30%, rgba(237, 64, 139, 0.1) 0%, transparent 25%), radial-gradient(circle at 30% 70%, rgba(237, 64, 139, 0.2) 0%, transparent 35%)",
+            ],
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+        <motion.div
+          className="absolute inset-0"
+          style={{
+            background: "linear-gradient(135deg, rgba(0,0,0,0.1) 0%, transparent 50%)",
+            boxShadow: "inset 0 0 100px rgba(0,0,0,0.2)",
+          }}
+        />
+        <div className="text-center text-white flex flex-col items-center relative z-10">
           <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent">
             Jane Doe
           </h1>
