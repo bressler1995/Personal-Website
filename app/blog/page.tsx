@@ -3,6 +3,7 @@ import path from 'path'
 import Link from 'next/link'
 import { BookOpen } from 'lucide-react'
 import PageHero from '@/components/page-hero'
+import PageTransitionLayout from '@/components/page-transition-layout'
 
 interface BlogPost {
   slug: string
@@ -46,42 +47,44 @@ export default async function BlogPage() {
   const posts = await getBlogPosts()
 
   return (
-    <div>
-      <PageHero
-        title="Blog"
-        description="Technical articles, tutorials, and insights about web development and software engineering."
-      />
-      <div className="max-w-4xl mx-auto px-4 py-8">
-        <div className="grid gap-8">
-          {posts.map((post) => (
-            <Link
-              key={post.slug}
-              href={`/blog/${post.slug}`}
-              className="block p-6 bg-card rounded-lg hover:bg-muted transition-colors"
-            >
-              <h2 className="text-2xl font-bold mb-2">{post.meta.title}</h2>
-              <div className="flex items-center gap-4 text-muted-foreground mb-4">
-                <time dateTime={post.meta.date}>
-                  {new Date(post.meta.date).toLocaleDateString()}
-                </time>
-                <div className="flex gap-2">
-                  {post.meta.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2 py-1 bg-muted rounded-full text-sm"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+    <PageTransitionLayout>
+      <div>
+        <PageHero
+          title="Blog"
+          description="Technical articles, tutorials, and insights about web development and software engineering."
+        />
+        <div className="max-w-4xl mx-auto px-4 py-8">
+          <div className="grid gap-8">
+            {posts.map((post) => (
+              <Link
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                className="block p-6 bg-card rounded-lg hover:bg-muted transition-colors"
+              >
+                <h2 className="text-2xl font-bold mb-2">{post.meta.title}</h2>
+                <div className="flex items-center gap-4 text-muted-foreground mb-4">
+                  <time dateTime={post.meta.date}>
+                    {new Date(post.meta.date).toLocaleDateString()}
+                  </time>
+                  <div className="flex gap-2">
+                    {post.meta.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-2 py-1 bg-muted rounded-full text-sm"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-              {post.meta.description && (
-                <p className="text-muted-foreground">{post.meta.description}</p>
-              )}
-            </Link>
-          ))}
+                {post.meta.description && (
+                  <p className="text-muted-foreground">{post.meta.description}</p>
+                )}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </PageTransitionLayout>
   )
 } 
