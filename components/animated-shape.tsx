@@ -28,7 +28,7 @@ const AnimatedCodeAbstraction = () => {
   const dotColors = [
     "#ED408B", // Pink
     "#A11A98", // Magenta
-    "#281847", // Deep Purple
+    "#1E1235", // Deep Purple
     "#ED408B",
     "#A11A98",
     "#281847",
@@ -57,7 +57,7 @@ const AnimatedCodeAbstraction = () => {
             <circle cx="150" cy="150" r="150" />
           </clipPath>
         </defs>
-        <circle cx="150" cy="150" r="150" fill="#281847" />
+        <circle cx="150" cy="150" r="150" fill="#1E1235" />
 
         {/* Container for grid lines with overflow hidden */}
         <g clipPath="url(#circleClip)">

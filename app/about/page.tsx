@@ -5,9 +5,9 @@ export default function About() {
   return (
     <PageTransitionLayout>
       <PageHero title="About Me" description="Discover the journey and passion behind my work as a React developer." />
-      <div className="min-h-screen p-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <p className="mb-4">
-          Hi, I'm Jane Doe, a passionate React developer with 5 years of experience building modern web applications. I
+          Hi, I'm Brian Ressler, a passionate React developer with 5 years of experience building modern web applications. I
           specialize in creating responsive, user-friendly interfaces and robust, scalable backend solutions.
         </p>
         <p className="mb-4">

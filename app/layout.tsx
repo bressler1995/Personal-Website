@@ -10,8 +10,8 @@ import type { Metadata } from 'next'
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Jane Doe - React Developer",
-  description: "Portfolio of Jane Doe, a React Developer specializing in modern web applications.",
+  title: "Brian Ressler - React Developer",
+  description: "Portfolio of Brian Ressler, a React Developer specializing in modern web applications.",
     generator: 'v0.dev'
 }
 
@@ -25,9 +25,9 @@ export default function RootLayout({
       <body className={`${inter.className} bg-[#1a0f2e] text-white`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <TransitionProvider>
-            <div className="flex h-screen overflow-hidden">
+            <div className="flex min-h-screen overflow-hidden">
               <Sidebar />
-              <main className="flex-1 overflow-auto">{children}</main>
+              <main className="flex-1 overflow-auto relative pl-16 md:pl-0">{children}</main>
             </div>
           </TransitionProvider>
         </ThemeProvider>

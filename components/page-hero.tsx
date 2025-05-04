@@ -11,7 +11,7 @@ interface PageHeroProps {
 
 const PageHero: React.FC<PageHeroProps> = ({ title, description }) => {
   return (
-    <div className="relative overflow-hidden bg-gradient-to-br from-[#281847] via-[#A11A98] to-[#c0357a] text-white">
+    <div className="relative overflow-hidden bg-gradient-to-br from-[#1E1235] via-[#A11A98] to-[#c0357a] text-white h-[300px] sm:h-[350px] lg:h-[400px]">
       <div className="absolute inset-0">
         <svg
           className="h-full w-full"
@@ -38,7 +38,7 @@ const PageHero: React.FC<PageHeroProps> = ({ title, description }) => {
           />
         </svg>
       </div>
-      <div className="relative px-4 py-16 sm:px-6 sm:py-24 lg:py-32 lg:px-8">
+      <div className="relative h-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
         <h1 className="text-center text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">{title}</h1>
         <p className="mt-6 max-w-lg mx-auto text-center text-xl sm:max-w-3xl">{description}</p>
       </div>

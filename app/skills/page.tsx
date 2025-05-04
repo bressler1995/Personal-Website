@@ -9,7 +9,7 @@ export default function Skills() {
         title="My Skills"
         description="A showcase of the technologies and tools I've mastered in my journey as a React developer."
       />
-      <div className="min-h-screen p-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <section>
           <h2 className="text-3xl font-bold mb-6">Individual Skills</h2>
           <SkillsList />

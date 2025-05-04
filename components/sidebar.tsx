@@ -3,7 +3,8 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { motion } from "framer-motion"
-import { Home, Code, Briefcase, User, BookOpen } from "lucide-react"
+import { Home, Code, Briefcase, User, BookOpen, ChevronLeft, ChevronRight } from "lucide-react"
+import { useState, useEffect } from "react"
 
 const navItems = [
   { name: "Home", href: "/", icon: Home },
@@ -15,58 +16,110 @@ const navItems = [
 
 const Sidebar = () => {
   const pathname = usePathname()
+  const [isOpen, setIsOpen] = useState(true)
+  const [isExpanded, setIsExpanded] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
+  const isTextVisible = isMobile ? isExpanded : isOpen
 
   return (
-    <aside className="w-16 md:w-64 h-screen bg-deep-purple border-r-2 border-[#4D2E8A] flex flex-col shadow-[4px_0_8px_-2px_rgba(0,0,0,0.3)] z-10">
-      <div className="p-4 flex justify-center md:justify-start items-center">
-        <span className="hidden md:inline-block text-2xl font-bold">JD</span>
-        <span className="md:hidden text-2xl font-bold">J</span>
-      </div>
-      <nav className="flex-1">
-        <ul>
-          {navItems.map((item) => (
-            <li key={item.name}>
-              <Link
-                href={item.href}
-                className={`flex items-center p-4 relative group ${
-                  pathname === item.href 
-                    ? "bg-gradient-to-r from-[#A11A98]/20 to-transparent" 
-                    : "hover:bg-white/5"
-                }`}
-              >
-                <motion.div
-                  className={`absolute inset-0 border-l-2 ${
-                    pathname === item.href 
-                      ? "border-[#A11A98]" 
-                      : "border-transparent group-hover:border-white/20"
-                  }`}
-                  initial={false}
-                  animate={{
-                    scale: pathname === item.href ? 1 : 0.95,
-                    opacity: pathname === item.href ? 1 : 0,
-                  }}
-                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                />
-                <motion.div
-                  className="flex items-center"
-                  animate={{
-                    x: pathname === item.href ? 4 : 0,
-                  }}
-                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                >
-                  <item.icon className={`w-6 h-6 mr-4 ${
-                    pathname === item.href ? "text-[#A11A98]" : "text-white/70 group-hover:text-white"
-                  }`} />
-                  <span className={`hidden md:inline-block ${
-                    pathname === item.href ? "text-white" : "text-white/70 group-hover:text-white"
-                  }`}>{item.name}</span>
-                </motion.div>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
-    </aside>
+    <>
+      {isMobile && isExpanded && (
+        <div 
+          className="fixed inset-0 bg-black/50 z-10"
+          onClick={() => setIsExpanded(false)}
+        />
+      )}
+      <aside className={`fixed md:relative w-16 md:w-64 h-screen bg-deep-purple border-r-2 border-[#4D2E8A] flex flex-col shadow-[4px_0_8px_-2px_rgba(0,0,0,0.3)] z-20 transition-all duration-300 
+        ${isMobile ? (isExpanded ? 'w-64' : 'w-16') : (isOpen ? 'md:w-64' : 'md:w-16')}`}>
+        <div className="w-full h-full overflow-hidden">
+          <div className="w-64 flex flex-col h-full">
+            <div className="p-4 flex justify-center md:justify-start items-center">
+              <span className={`text-2xl font-bold ${isTextVisible ? 'inline-block' : 'hidden'}`}>BR</span>
+            </div>
+            <nav className="flex-1">
+              <ul>
+                {navItems.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      href={item.href}
+                      className={`flex items-center p-4 relative group ${
+                        pathname === item.href 
+                          ? "bg-gradient-to-r from-[#A11A98]/20 to-transparent" 
+                          : "hover:bg-white/5"
+                      }`}
+                    >
+                      <motion.div
+                        className={`absolute inset-0 border-l-2 ${
+                          pathname === item.href 
+                            ? "border-[#A11A98]" 
+                            : "border-transparent group-hover:border-white/20"
+                        }`}
+                        initial={false}
+                        animate={{
+                          scale: pathname === item.href ? 1 : 0.95,
+                          opacity: pathname === item.href ? 1 : 0,
+                        }}
+                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                      />
+                      <motion.div
+                        className="flex items-center"
+                        animate={{
+                          x: pathname === item.href ? 4 : 0,
+                        }}
+                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                      >
+                        <div className="flex items-center justify-center w-6">
+                          <item.icon className={`w-6 h-6 ${
+                            pathname === item.href ? "text-[#A11A98]" : "text-white/70 group-hover:text-white"
+                          }`} />
+                        </div>
+                        <div className={`ml-8 ${isTextVisible ? 'opacity-100' : 'opacity-0'}`}>
+                          <span className={`${
+                            pathname === item.href ? "text-white" : "text-white/70 group-hover:text-white"
+                          }`}>
+                            {item.name}
+                          </span>
+                        </div>
+                      </motion.div>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <div className="absolute bottom-4 left-0 right-0 flex justify-center">
+          <motion.button
+            onClick={() => {
+              if (isMobile) {
+                setIsExpanded(!isExpanded)
+              } else {
+                setIsOpen(!isOpen)
+              }
+            }}
+            className="p-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            {isTextVisible ? (
+              <ChevronLeft className="w-5 h-5 text-white/70" />
+            ) : (
+              <ChevronRight className="w-5 h-5 text-white/70" />
+            )}
+          </motion.button>
+        </div>
+      </aside>
+    </>
   )
 }
 

@@ -11,22 +11,22 @@ export default function Home() {
     <PageTransitionLayout>
       <div className="min-h-screen flex flex-col justify-center items-center p-4 relative overflow-hidden">
         <motion.div
-          className="absolute inset-0 bg-gradient-to-br from-[#281847] via-[#A11A98] to-[#c0357a]"
+          className="absolute inset-0 bg-gradient-to-br from-[#1E1235] via-[#A11A98] to-[#c0357a]"
           animate={{
             background: [
-              "linear-gradient(145deg, #281847 0%, #A11A98 50%, #c0357a 100%)",
-              "linear-gradient(125deg, #281847 0%, #c0357a 50%, #A11A98 100%)",
-              "linear-gradient(155deg, #A11A98 0%, #281847 50%, #c0357a 100%)",
-              "linear-gradient(135deg, #c0357a 0%, #A11A98 50%, #281847 100%)",
-              "linear-gradient(145deg, #281847 0%, #A11A98 50%, #c0357a 100%)",
-              "linear-gradient(125deg, #281847 0%, #c0357a 50%, #A11A98 100%)",
-              "linear-gradient(155deg, #A11A98 0%, #281847 50%, #c0357a 100%)",
-              "linear-gradient(135deg, #c0357a 0%, #A11A98 50%, #281847 100%)",
-              "linear-gradient(145deg, #281847 0%, #A11A98 50%, #c0357a 100%)",
+              "linear-gradient(145deg, #1E1235 0%, #A11A98 35%, #c0357a 100%)",
+              "linear-gradient(165deg, #1E1235 0%, #c0357a 45%, #A11A98 100%)",
+              "linear-gradient(195deg, #A11A98 0%, #1E1235 40%, #c0357a 100%)",
+              "linear-gradient(215deg, #c0357a 0%, #A11A98 50%, #1E1235 100%)",
+              "linear-gradient(235deg, #1E1235 0%, #c0357a 60%, #A11A98 100%)",
+              "linear-gradient(255deg, #A11A98 0%, #1E1235 55%, #c0357a 100%)",
+              "linear-gradient(275deg, #c0357a 0%, #A11A98 45%, #1E1235 100%)",
+              "linear-gradient(295deg, #1E1235 0%, #c0357a 40%, #A11A98 100%)",
+              "linear-gradient(315deg, #A11A98 0%, #1E1235 35%, #c0357a 100%)",
             ],
           }}
           transition={{
-            duration: 30,
+            duration: 40,
             repeat: Infinity,
             ease: "easeInOut",
           }}
@@ -57,7 +57,7 @@ export default function Home() {
         />
         <div className="text-center text-white flex flex-col items-center relative z-10">
           <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent">
-            Jane Doe
+            Brian Ressler
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-gray-200">React Developer Extraordinaire</p>
           <AnimatedCodeAbstraction />

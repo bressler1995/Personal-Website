@@ -20,7 +20,7 @@ body {
     --card-foreground: 0 0% 98%;
     --popover: 255 35% 12%;  /* Matching card */
     --popover-foreground: 0 0% 98%;
-    --primary: 255 35% 18%;  /* #281847 - Sidebar color */
+    --primary: 255 35% 15%;  /* #1E1235 - Sidebar color */
     --primary-foreground: 0 0% 98%;
     --secondary: 303 72% 37%;  /* #A11A98 */
     --secondary-foreground: 0 0% 98%;
@@ -39,7 +39,7 @@ body {
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
-    --sidebar-background: 255 35% 18%;  /* #281847 */
+    --sidebar-background: 255 35% 15%;  /* #1E1235 */
     --sidebar-foreground: 0 0% 98%;
     --sidebar-primary: 303 72% 37%;  /* #A11A98 */
     --sidebar-primary-foreground: 333 76% 59%;  /* #ED408B - Active text color */
