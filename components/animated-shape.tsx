@@ -24,6 +24,22 @@ const AnimatedCodeAbstraction = () => {
     { x: 150, y: 200 }
   ]
 
+  // Define dot colors using our brand colors
+  const dotColors = [
+    "#ED408B", // Pink
+    "#A11A98", // Magenta
+    "#281847", // Deep Purple
+    "#ED408B",
+    "#A11A98",
+    "#281847",
+    "#ED408B",
+    "#A11A98",
+    "#281847",
+    "#ED408B",
+    "#A11A98",
+    "#281847"
+  ]
+
   useEffect(() => {
     setMounted(true)
   }, [])
@@ -41,7 +57,7 @@ const AnimatedCodeAbstraction = () => {
             <circle cx="150" cy="150" r="150" />
           </clipPath>
         </defs>
-        <circle cx="150" cy="150" r="150" fill="#1a1a1a" />
+        <circle cx="150" cy="150" r="150" fill="#281847" />
 
         {/* Container for grid lines with overflow hidden */}
         <g clipPath="url(#circleClip)">
@@ -54,12 +70,12 @@ const AnimatedCodeAbstraction = () => {
                 y1={i * 50}
                 x2="300"
                 y2={i * 50}
-                stroke="#2a2a2a"
+                stroke="#C13AB8"
                 strokeWidth="1"
-                initial={{ pathLength: 0, opacity: 0.3 }}
+                initial={{ pathLength: 0, opacity: 0.2 }}
                 animate={{
                   pathLength: [0, 1, 1, 0],
-                  opacity: [0.3, 0.6, 0.6, 0.3],
+                  opacity: [0.2, 0.4, 0.4, 0.2],
                 }}
                 transition={{
                   duration: 8,
@@ -75,12 +91,12 @@ const AnimatedCodeAbstraction = () => {
                 y1="0"
                 x2={i * 50}
                 y2="300"
-                stroke="#2a2a2a"
+                stroke="#C13AB8"
                 strokeWidth="1"
-                initial={{ pathLength: 0, opacity: 0.3 }}
+                initial={{ pathLength: 0, opacity: 0.2 }}
                 animate={{
                   pathLength: [0, 1, 1, 0],
-                  opacity: [0.3, 0.6, 0.6, 0.3],
+                  opacity: [0.2, 0.4, 0.4, 0.2],
                 }}
                 transition={{
                   duration: 8,
@@ -102,7 +118,7 @@ const AnimatedCodeAbstraction = () => {
             cx={pos.x}
             cy={pos.y}
             r="4"
-            fill="#61dafb"
+            fill={dotColors[i]}
             initial={{ scale: 0, opacity: 0 }}
             animate={{
               scale: [0, 1, 1, 0],
@@ -110,8 +126,8 @@ const AnimatedCodeAbstraction = () => {
             }}
             transition={{
               duration: 4,
-              times: [0, 0.3, 0.7, 1],
-              delay: i * 0.5,
+              times: [0, 0.2, 0.8, 1],
+              delay: i * 0.2,
               repeat: Number.POSITIVE_INFINITY,
               repeatType: "loop",
               ease: "easeInOut",
@@ -123,7 +139,7 @@ const AnimatedCodeAbstraction = () => {
         <motion.path
           d="M150 75 L225 150 L150 225 L75 150 Z"
           fill="none"
-          stroke="#61dafb"
+          stroke="#ED408B"
           strokeWidth="4"
           animate={{
             rotate: 360,
@@ -143,7 +159,7 @@ const AnimatedCodeAbstraction = () => {
           cy="150"
           r="70"
           fill="none"
-          stroke="#61dafb"
+          stroke="#A11A98"
           strokeWidth="2"
           animate={{
             scale: [1, 1.2, 1],
@@ -163,7 +179,7 @@ const AnimatedCodeAbstraction = () => {
             key={`dynamic-line-${i}`}
             d={`M${75 + i * 75} 75 Q150 ${150 + i * 25} ${225 - i * 75} 225`}
             fill="none"
-            stroke="#61dafb"
+            stroke="#ED408B"
             strokeWidth="2"
             animate={{
               pathLength: [0, 1],
