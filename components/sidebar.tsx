@@ -17,7 +17,7 @@ const Sidebar = () => {
   const pathname = usePathname()
 
   return (
-    <aside className="w-16 md:w-64 h-screen bg-deep-purple border-r flex flex-col">
+    <aside className="w-16 md:w-64 h-screen bg-deep-purple border-r-2 border-[#4D2E8A] flex flex-col shadow-[4px_0_8px_-2px_rgba(0,0,0,0.3)] z-10">
       <div className="p-4 flex justify-center md:justify-start items-center">
         <span className="hidden md:inline-block text-2xl font-bold">JD</span>
         <span className="md:hidden text-2xl font-bold">J</span>
@@ -28,22 +28,39 @@ const Sidebar = () => {
             <li key={item.name}>
               <Link
                 href={item.href}
-                className={`flex items-center p-4 hover:bg-muted transition-colors relative ${
-                  pathname === item.href ? "text-accent" : ""
+                className={`flex items-center p-4 relative group ${
+                  pathname === item.href 
+                    ? "bg-gradient-to-r from-[#A11A98]/20 to-transparent" 
+                    : "hover:bg-white/5"
                 }`}
               >
-                <item.icon className="w-6 h-6 mr-4" />
-                <span className="hidden md:inline-block">{item.name}</span>
-                {pathname === item.href && (
-                  <motion.div
-                    className="absolute inset-y-0 left-0 w-1 bg-accent"
-                    layoutId="sidebar-indicator"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                  />
-                )}
+                <motion.div
+                  className={`absolute inset-0 border-l-2 ${
+                    pathname === item.href 
+                      ? "border-[#A11A98]" 
+                      : "border-transparent group-hover:border-white/20"
+                  }`}
+                  initial={false}
+                  animate={{
+                    scale: pathname === item.href ? 1 : 0.95,
+                    opacity: pathname === item.href ? 1 : 0,
+                  }}
+                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                />
+                <motion.div
+                  className="flex items-center"
+                  animate={{
+                    x: pathname === item.href ? 4 : 0,
+                  }}
+                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                >
+                  <item.icon className={`w-6 h-6 mr-4 ${
+                    pathname === item.href ? "text-[#A11A98]" : "text-white/70 group-hover:text-white"
+                  }`} />
+                  <span className={`hidden md:inline-block ${
+                    pathname === item.href ? "text-white" : "text-white/70 group-hover:text-white"
+                  }`}>{item.name}</span>
+                </motion.div>
               </Link>
             </li>
           ))}
