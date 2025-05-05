@@ -54,7 +54,7 @@ const Sidebar = () => {
                       href={item.href}
                       className={`flex items-center p-4 relative group ${
                         pathname === item.href 
-                          ? "bg-gradient-to-r from-[#A11A98]/20 to-transparent" 
+                          ? "bg-gradient-to-r from-[#A11A98]/40 via-[#A11A98]/20 to-transparent" 
                           : "hover:bg-white/5"
                       }`}
                     >
@@ -85,7 +85,7 @@ const Sidebar = () => {
                         </div>
                         <div className={`ml-8 ${isTextVisible ? 'opacity-100' : 'opacity-0'}`}>
                           <span className={`${
-                            pathname === item.href ? "text-white" : "text-white/70 group-hover:text-white"
+                            pathname === item.href ? "text-white font-medium" : "text-white/70 group-hover:text-white"
                           }`}>
                             {item.name}
                           </span>
