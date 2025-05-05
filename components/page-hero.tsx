@@ -11,7 +11,21 @@ interface PageHeroProps {
 
 const PageHero: React.FC<PageHeroProps> = ({ title, description }) => {
   return (
-    <div className="relative overflow-hidden bg-gradient-to-br from-[#1E1235] via-[#A11A98] to-[#c0357a] text-white h-[300px] sm:h-[350px] lg:h-[400px]">
+    <div className="relative overflow-hidden text-white h-[300px] sm:h-[350px] lg:h-[400px]">
+      <div 
+        className="absolute inset-0"
+        style={{
+          background: `
+            conic-gradient(from 225deg at 120% -20%, #1E1235 0deg, #A11A98 90deg, #c0357a 180deg, #A11A98 270deg, #1E1235 360deg),
+            radial-gradient(circle at 20% 20%, #A11A98 0%, transparent 45%),
+            radial-gradient(circle at 80% 30%, #c0357a 0%, transparent 45%),
+            radial-gradient(circle at 70% 70%, #A11A98 0%, transparent 45%),
+            radial-gradient(circle at 30% 80%, #c0357a 0%, transparent 45%)
+          `,
+          backgroundBlendMode: 'overlay',
+          opacity: 0.5
+        }}
+      />
       <div className="absolute inset-0">
         <svg
           className="h-full w-full"
@@ -20,8 +34,8 @@ const PageHero: React.FC<PageHeroProps> = ({ title, description }) => {
           preserveAspectRatio="none"
         >
           <motion.path
-            fill="rgba(192, 53, 122, 0.2)"  /* #c0357a with 20% opacity */
-            fillOpacity="0.5"
+            fill="rgba(192, 53, 122, 0.2)"  /* Increased from 0.15 to 0.2 */
+            fillOpacity="0.4"  /* Increased from 0.3 to 0.4 */
             d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,208C1248,224,1344,192,1392,176L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
             animate={{
               d: [

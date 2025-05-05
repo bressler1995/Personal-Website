@@ -39,8 +39,8 @@ const Sidebar = () => {
           onClick={() => setIsExpanded(false)}
         />
       )}
-      <aside className={`fixed md:relative w-16 md:w-64 h-screen bg-deep-purple border-r-2 border-[#4D2E8A] flex flex-col shadow-[4px_0_8px_-2px_rgba(0,0,0,0.3)] z-20 transition-all duration-300 
-        ${isMobile ? (isExpanded ? 'w-64' : 'w-16') : (isOpen ? 'md:w-64' : 'md:w-16')}`}>
+      <aside className={`fixed md:relative h-screen bg-deep-purple border-r-2 border-[#4D2E8A] flex flex-col shadow-[4px_0_8px_-2px_rgba(0,0,0,0.3)] z-20 transition-all duration-300 
+        ${isMobile ? (isExpanded ? 'w-64' : 'w-16') : (isOpen ? 'w-64' : 'w-16')}`}>
         <div className="w-full h-full overflow-hidden">
           <div className="w-64 flex flex-col h-full">
             <div className="p-4 flex justify-center md:justify-start items-center">
