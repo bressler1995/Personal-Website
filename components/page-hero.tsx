@@ -23,7 +23,7 @@ const PageHero: React.FC<PageHeroProps> = ({ title, description }) => {
             radial-gradient(circle at 30% 80%, #c0357a 0%, transparent 45%)
           `,
           backgroundBlendMode: 'overlay',
-          opacity: 0.5
+          opacity: 0.65
         }}
       />
       <div className="absolute inset-0">

@@ -34,7 +34,7 @@ export default function Home() {
           <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent">
             Brian Ressler
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-200">React Developer Extraordinaire</p>
+          <p className="text-xl md:text-2xl mb-8 text-gray-200">Web Development Extraordinaire</p>
           <AnimatedCodeAbstraction />
           <div className="mt-8">
             <Button asChild className="bg-transparent border-2 border-white text-white hover:bg-white/10 hover:scale-105 transition-all duration-300">

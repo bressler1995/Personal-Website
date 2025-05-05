@@ -76,6 +76,8 @@ const AnimatedCodeAbstraction = () => {
                 animate={{
                   pathLength: [0, 1, 1, 0],
                   opacity: [0.2, 0.4, 0.4, 0.2],
+                  y1: [i * 50, i * 50 + 5, i * 50 - 5, i * 50],
+                  y2: [i * 50, i * 50 - 5, i * 50 + 5, i * 50],
                 }}
                 transition={{
                   duration: 8,
@@ -97,6 +99,8 @@ const AnimatedCodeAbstraction = () => {
                 animate={{
                   pathLength: [0, 1, 1, 0],
                   opacity: [0.2, 0.4, 0.4, 0.2],
+                  x1: [i * 50, i * 50 + 5, i * 50 - 5, i * 50],
+                  x2: [i * 50, i * 50 - 5, i * 50 + 5, i * 50],
                 }}
                 transition={{
                   duration: 8,

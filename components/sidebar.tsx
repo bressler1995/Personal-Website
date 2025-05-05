@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { motion } from "framer-motion"
-import { Home, Code, Briefcase, User, BookOpen, ChevronLeft, ChevronRight } from "lucide-react"
+import { Home, Code, Briefcase, User, BookOpen, ChevronLeft, ChevronRight, Github, Linkedin, Twitter } from "lucide-react"
 import { useState, useEffect } from "react"
 
 const navItems = [
@@ -12,6 +12,12 @@ const navItems = [
   { name: "Skills", href: "/skills", icon: Code },
   { name: "Projects", href: "/projects", icon: Briefcase },
   { name: "Blog", href: "/blog", icon: BookOpen },
+]
+
+const socialLinks = [
+  { name: "GitHub", href: "https://github.com/yourusername", icon: Github },
+  { name: "LinkedIn", href: "https://linkedin.com/in/yourusername", icon: Linkedin },
+  { name: "Twitter", href: "https://twitter.com/yourusername", icon: Twitter },
 ]
 
 const Sidebar = () => {
@@ -39,7 +45,7 @@ const Sidebar = () => {
           onClick={() => setIsExpanded(false)}
         />
       )}
-      <aside className={`fixed md:relative h-screen bg-deep-purple border-r-2 border-[#4D2E8A] flex flex-col shadow-[4px_0_8px_-2px_rgba(0,0,0,0.3)] z-20 transition-all duration-300 
+      <aside className={`fixed top-0 left-0 h-screen bg-deep-purple border-r-2 border-[#4D2E8A] flex flex-col shadow-[4px_0_8px_-2px_rgba(0,0,0,0.3)] z-20 transition-all duration-300 
         ${isMobile ? (isExpanded ? 'w-64' : 'w-16') : (isOpen ? 'w-64' : 'w-16')}`}>
         <div className="w-full h-full overflow-hidden">
           <div className="w-64 flex flex-col h-full">
@@ -96,9 +102,25 @@ const Sidebar = () => {
                 ))}
               </ul>
             </nav>
+            <div className="p-4 border-t border-white/10">
+              <div className="flex justify-center gap-4">
+                {socialLinks.map((link) => (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white/70 hover:text-white transition-colors"
+                  >
+                    <link.icon className="w-5 h-5" />
+                    <span className="sr-only">{link.name}</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
-        <div className="absolute bottom-4 left-0 right-0 flex justify-center">
+        <div className="absolute top-1/2 -right-3 transform -translate-y-1/2">
           <motion.button
             onClick={() => {
               if (isMobile) {
@@ -107,7 +129,7 @@ const Sidebar = () => {
                 setIsOpen(!isOpen)
               }
             }}
-            className="p-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300"
+            className="p-2 rounded-full bg-deep-purple hover:bg-[#2A1B4A] border border-[#4D2E8A] shadow-lg transition-all duration-300"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

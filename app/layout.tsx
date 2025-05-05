@@ -27,7 +27,7 @@ export default function RootLayout({
           <TransitionProvider>
             <div className="flex min-h-screen overflow-hidden">
               <Sidebar />
-              <main className="flex-1 overflow-auto relative pl-16 md:pl-0">{children}</main>
+              <main className="flex-1 overflow-auto relative ml-16 md:ml-64 transition-all duration-300">{children}</main>
             </div>
           </TransitionProvider>
         </ThemeProvider>

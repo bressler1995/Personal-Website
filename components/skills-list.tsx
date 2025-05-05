@@ -2,38 +2,40 @@
 
 import { motion } from "framer-motion"
 import { Badge } from "@/components/ui/badge"
-import {
-  CodepenIcon as ReactIcon,
-  CodepenIcon as NextJs,
-  FileTypeIcon as FileTypeTypescript,
-  Paintbrush2,
-  Atom,
-  GitGraphIcon as GraphQl,
-  CodepenIcon as NodeJs,
-  Server,
-  Database,
-  FileTypeIcon as FileTypeTest,
-  GitBranch,
-  Workflow,
-  Cloud,
-} from "lucide-react"
+import { 
+  SiReact,
+  SiNextdotjs,
+  SiTypescript,
+  SiTailwindcss,
+  SiRedux,
+  SiGraphql,
+  SiNodedotjs,
+  SiExpress,
+  SiMongodb,
+  SiPostgresql,
+  SiJest,
+  SiTestinglibrary,
+  SiGit,
+  SiGithubactions,
+  SiAmazon
+} from "react-icons/si"
 
 const skills = [
-  { name: "React", icon: ReactIcon, color: "from-blue-400 to-blue-600" },
-  { name: "Next.js", icon: NextJs, color: "from-black to-gray-800" },
-  { name: "TypeScript", icon: FileTypeTypescript, color: "from-blue-600 to-blue-800" },
-  { name: "Tailwind CSS", icon: Paintbrush2, color: "from-teal-400 to-teal-600" },
-  { name: "Redux", icon: Atom, color: "from-purple-500 to-purple-700" },
-  { name: "GraphQL", icon: GraphQl, color: "from-pink-500 to-pink-700" },
-  { name: "Node.js", icon: NodeJs, color: "from-green-500 to-green-700" },
-  { name: "Express", icon: Server, color: "from-gray-500 to-gray-700" },
-  { name: "MongoDB", icon: Database, color: "from-green-600 to-green-800" },
-  { name: "PostgreSQL", icon: Database, color: "from-blue-500 to-blue-700" },
-  { name: "Jest", icon: FileTypeTest, color: "from-red-500 to-red-700" },
-  { name: "React Testing Library", icon: FileTypeTest, color: "from-red-600 to-red-800" },
-  { name: "Git", icon: GitBranch, color: "from-orange-500 to-orange-700" },
-  { name: "CI/CD", icon: Workflow, color: "from-indigo-500 to-indigo-700" },
-  { name: "AWS", icon: Cloud, color: "from-yellow-500 to-yellow-700" },
+  { name: "React", icon: SiReact, color: "from-blue-400 to-blue-600" },
+  { name: "Next.js", icon: SiNextdotjs, color: "from-black to-gray-800" },
+  { name: "TypeScript", icon: SiTypescript, color: "from-blue-600 to-blue-800" },
+  { name: "Tailwind CSS", icon: SiTailwindcss, color: "from-teal-400 to-teal-600" },
+  { name: "Redux", icon: SiRedux, color: "from-purple-500 to-purple-700" },
+  { name: "GraphQL", icon: SiGraphql, color: "from-pink-500 to-pink-700" },
+  { name: "Node.js", icon: SiNodedotjs, color: "from-green-500 to-green-700" },
+  { name: "Express", icon: SiExpress, color: "from-gray-500 to-gray-700" },
+  { name: "MongoDB", icon: SiMongodb, color: "from-green-600 to-green-800" },
+  { name: "PostgreSQL", icon: SiPostgresql, color: "from-blue-500 to-blue-700" },
+  { name: "Jest", icon: SiJest, color: "from-red-500 to-red-700" },
+  { name: "React Testing Library", icon: SiTestinglibrary, color: "from-red-600 to-red-800" },
+  { name: "Git", icon: SiGit, color: "from-orange-500 to-orange-700" },
+  { name: "CI/CD", icon: SiGithubactions, color: "from-indigo-500 to-indigo-700" },
+  { name: "AWS", icon: SiAmazon, color: "from-yellow-500 to-yellow-700" },
 ]
 
 const SkillsList = () => {
